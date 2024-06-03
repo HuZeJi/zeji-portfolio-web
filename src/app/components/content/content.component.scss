@@ -1,0 +1,165 @@
+@import './../../../styles.scss';
+
+$border-gap: 25px;
+
+main {
+    margin: $border-gap;
+    border-radius: 25px;
+    background-color: $dark;
+
+    width: calc( 100vw - ( $border-gap * 2 ) );
+    height: calc( 100% - ( $border-gap ) );
+    max-width: 1350px;
+
+    overflow: hidden;
+
+    *{ color: $base-background; z-index: 1; }
+
+    position: relative;
+}
+
+.header {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+
+    @include flex-full-center();
+    align-items: flex-start;
+
+    .lang-options {
+        @include flex-full-center();
+        gap: 10px;
+
+        margin-left: 25px;
+
+        .icon {
+            @include square( 27px );
+            border-radius: 27px;
+            background-color: $base-background;
+        }
+    }
+
+    .logo {
+        @include square(75px);
+        background-color: $blue;
+        border-radius: 10px;
+    }
+}
+
+.buttons {
+    position: absolute;
+    width: calc( 50% - ( 225px / 2 ) - ( $border-gap ) );
+
+    @include flex-full-center();
+    gap: 15%;
+
+    bottom: $border-gap;
+
+    * { font-weight: bold; }   
+
+    .btn {
+        @include rectangle( 161px, 50px );
+        border: 2px solid $base-background;
+        border-radius: 50px;
+        @include flex-full-center();
+        .icon, .mobile-label { display: none; }
+    }
+}
+
+.buttons-left { justify-content: flex-start; }
+.buttons-right { justify-content: flex-end; }
+
+.buttons-left, .left-nav { left: $border-gap; }
+.buttons-right, .right-nav { right: $border-gap; }
+
+.nav {
+    position: absolute;
+    bottom: 100px;
+
+    $max-width: 35px;
+
+    @include flex-full-center();
+    flex-direction: column;
+    gap: 3px;
+
+    .icon {
+        @include rectangle( $max-width, 10px );
+        background-color: $base-background;
+    }
+}
+
+.left-nav { align-items: flex-start; }
+.right-nav { align-items: flex-end; text-align: right; }
+
+.title {
+    position: absolute;
+    right: $border-gap;
+    top: $border-gap;
+}
+
+@media only screen and (max-width: 768px) {
+    $border-gap: 15px;
+
+    main {
+        margin: $border-gap;
+        border-radius: $border-gap;
+        width: calc( 100vw - ( $border-gap * 2 ) );
+    }
+
+    .title {
+        top: calc( $border-gap + 75px - 30px );
+    }
+
+    .header {
+        top: $border-gap;
+        left: $border-gap;
+
+        justify-content: flex-start;
+        width: 100%;
+        .lang-options { width: calc( ( 100% / 3 * 2 ) - 100px ); }
+    }
+
+    .buttons {
+        position: absolute;
+        width: 57px;
+
+        @include flex-full-center();
+        flex-direction: column;
+        gap: $border-gap;
+
+        * { color: $base-background; } 
+        .btn {
+            border-color: $base-background;
+            @include rectangle( 35px, 57px );
+            border-radius: 10px;
+            @include flex-full-center();
+            flex-direction: column;
+
+            .mobile-label { display: block; }
+            .desk-label { display: none; }
+
+            .icon {
+                display: block;
+                @include square( 20px );
+                border-radius: 20px;
+
+                background-color: $base-background;
+            }
+
+            span { font-size: 0.7rem; text-align: center; }
+        }
+
+        .selected {
+            background-color: $base-background;
+            .icon { background-color: $blue; }
+            span { color: $blue; }
+        }
+    }
+
+    .buttons-left { bottom: calc( 187px + $border-gap ); }
+    .buttons-right { bottom: 50px; }
+
+    .buttons-left, .buttons-right { left: unset; right: $border-gap;  }
+
+    .nav { display: none; }
+}

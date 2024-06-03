@@ -1,0 +1,124 @@
+@import './../../../../styles.scss';
+main {
+    @include square( 100% );
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5DgbthTExRlU_sf__BRU3o_EhG2nZwT9VvjYUpJLwtQ&s');
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover;
+
+    @include flex-full-center();
+    gap: 50px;
+
+    height: 100%;
+}
+
+.projects {
+    width: calc( 100% - 400px - 50px - 50px );
+    height: 225px;
+
+    @include flex-full-center();
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 25px;
+
+    flex-wrap: wrap;
+
+    .fill {
+        background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5DgbthTExRlU_sf__BRU3o_EhG2nZwT9VvjYUpJLwtQ&s');
+        background-position: center; 
+        background-repeat: no-repeat; 
+        background-size: cover;
+    }
+
+    .project {
+        @include square( 100px );
+        border-radius: 15px;
+        background-color: $blue-opaque;
+        *{ color: $base-background; }
+        @include flex-full-center();
+        align-items: flex-end;
+
+        padding: 12.5px;
+        box-sizing: border-box;
+
+        position: relative;
+
+        .title {
+            @include flex-full-center();
+
+            background-color: $dark-opaque;
+
+            font-size: 0.8rem;
+            font-weight: 200;
+
+            width: 75px;
+            height: 25px;
+            border-radius: 25px;
+        }
+
+        .soon {
+            position: absolute;
+            font-size: .7rem;
+            @include flex-full-center();
+            @include rectangle( 25px, 15px);
+            border-radius: 15px;
+            background-color: $orange;
+            z-index: 2;
+            bottom: 30px;
+            left: 62.5px;
+        }
+    }
+
+    .selected {
+        border: 2px solid $orange;
+    }
+}
+
+.blur-layer-vertical-double { position: absolute; }
+
+@media only screen and (max-width: 768px) {
+    main {
+        flex-direction: column;
+        padding: 15px;
+        box-sizing: border-box;
+        align-items: flex-start;
+    }
+
+    .projects {
+        width: calc( 100% - 75px );
+
+        .project {
+            @include square( 75px );
+            border-radius: 10px;
+
+            .title {
+                @include flex-full-center();
+
+                background-color: $dark-opaque;
+
+                font-size: 0.6rem;
+                font-weight: 200;
+
+                @include rectangle( 55px, 20px );
+                border-radius: 20px;
+            }
+
+            .soon {
+                font-size: .6rem;
+                @include flex-full-center();
+                @include rectangle( 25px, 15px);
+                border-radius: 15px;
+                background-color: $orange;
+                z-index: 2;
+                bottom: 28px;
+                left: 46px;
+            }
+        }
+
+        .selected {
+            border: 2px solid $orange;
+        }
+    }
+
+    .blur-layer-vertical-double { position: absolute; }
+}

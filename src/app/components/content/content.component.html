@@ -1,0 +1,63 @@
+<main>
+  <!-- <div class="blur-layer-vertical-double"></div> -->
+
+  <div class="header">
+      <div class="logo"></div>
+      <div class="lang-options">
+          <div class="icon"></div>
+          <div class="en">EN</div>
+          <div class="es">ES</div>
+      </div>
+  </div>
+
+  <h1 class="title">About me</h1>
+
+  <div class="buttons buttons-left">
+    <div class="btn btn-about-me selected">
+      <div class="icon"></div>
+      <span class="desk-label">About me</span>    
+      <span class="mobile-label">me</span>      
+    </div>
+    <div class="btn btn-my-projects">
+      <div class="icon"></div>
+      <span class="desk-label">My projects</span>  
+      <span class="mobile-label">work</span>         
+    </div>
+  </div>
+
+  <div class="buttons buttons-right">
+    <div class="btn btn-my-skills">
+      <div class="icon"></div>
+      <span class="desk-label">My skills</span> 
+      <span class="mobile-label">skill</span>      
+    </div>
+    <div class="btn btn-contact">
+      <div class="icon"></div>
+      <span class="desk-label">Contact</span> 
+      <span class="mobile-label">conn</span>      
+    </div>
+  </div>
+
+  <div class="nav left-nav">
+    <div class="view">Contact</div>
+    <div class="icon"></div>
+  </div>
+  <div class="nav right-nav">
+    <div class="view">My <br>projects</div>
+    <div class="icon"></div>
+  </div>
+
+  @switch (selectedOption) {
+      @case ( 0 ) {
+        <app-about-me></app-about-me>
+      } @case ( 1 ) {
+        <app-my-projects></app-my-projects>
+      } @case ( 2 ) {
+        <app-my-skills></app-my-skills>
+      } @case ( 3 ) {
+        <app-contact></app-contact>
+      } @default {
+        Invalid option
+      }
+    }
+</main>

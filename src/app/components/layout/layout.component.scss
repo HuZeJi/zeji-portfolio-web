@@ -1,0 +1,54 @@
+@import './../../../styles.scss';
+
+$content-heigh: 57%;
+
+main { position: relative; }
+
+.view {
+    @include flex-full-center();
+    flex-direction: column;
+    height: 100vh;
+}
+
+.content {
+    height: $content-heigh;
+}
+
+.general-info {
+    width: 100%;
+    height: calc( 100% - $content-heigh );
+}
+
+.contact-button {
+    $button-size: 175px;
+
+    @include square($button-size);
+    background-color: $orange;
+    border-radius: $button-size;
+    position: absolute;
+
+    top: calc( $content-heigh - ( ( $button-size + 50px ) / 2 ) );
+    left: calc( 50% - ( ( $button-size + 50px ) / 2 ) );
+
+    border: 25px solid $base-background;
+
+    z-index: 1;
+}
+
+@media only screen and (max-width: 768px) {
+    $content-heigh: calc( 100% - 100px );
+
+    .content { height: $content-heigh; }
+    .general-info { height: 100px; }
+
+    .contact-button {
+        $button-size: 100px;
+        @include square($button-size);
+        top: auto;
+        left: auto;
+        bottom: 15px;
+        right: 15px;
+
+        border: 12.5px solid $base-background;
+    }
+}

@@ -1,0 +1,106 @@
+@import './../../../../styles.scss';
+main {
+    @include square( 100% );
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5DgbthTExRlU_sf__BRU3o_EhG2nZwT9VvjYUpJLwtQ&s');
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover;
+
+    @include flex-full-center();
+    gap: 50px;
+
+    height: 100%;
+
+    *{ color: $base-background; }
+}
+
+.skills {
+    width: calc( 100% - 400px - 50px - 50px );
+    height: 225px;
+
+    @include flex-full-center();
+    justify-content: flex-end;
+    gap: 12.5px;
+
+    .skill {
+        position: relative;
+
+        background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5DgbthTExRlU_sf__BRU3o_EhG2nZwT9VvjYUpJLwtQ&s');
+        background-position: center; 
+        background-repeat: no-repeat; 
+        background-size: cover;
+
+        @include rectangle( 100px, 225px );
+        border-radius: 15px;
+
+        overflow: hidden;
+        .content {
+            z-index: 1;
+        }
+        h2 { writing-mode: vertical-lr; transform: rotate(180deg); }
+        
+        padding: 12.5px;
+        box-sizing: border-box;
+
+        .details { display: none; }
+    }
+
+    .selected {
+        width: 245px;
+        h2 { 
+            writing-mode: horizontal-tb; 
+            transform: rotate(0deg); 
+        }
+        .details {
+            margin-top: 12.5px;
+            @include flex-full-center();
+            justify-content: flex-start;
+            gap: 12.5px;
+            flex-wrap: wrap;
+
+            .detail {
+                background-color: $dark-opaque;
+                font-size: 0.8rem;
+                font-weight: 200;
+                padding: 5px 10px;
+                border-radius: 10px;
+            }
+        }
+    }
+}
+
+.blur-layer-vertical-double { position: absolute; }
+
+@media only screen and (max-width: 768px) {
+    main {
+        flex-direction: column;
+        padding: 15px;
+        box-sizing: border-box;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding-top: 125px;
+    }
+
+    .description { 
+        width: 100%; 
+        @include flex-full-center();
+    }
+    
+    .skills {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        .skill {    
+            @include rectangle( 50px, 250px );
+            border-radius: 10px;
+        }
+    
+        .selected {
+            width: 245px;
+        }
+    }
+}
+
+@media only screen and (max-width: 560px) {
+    .skills { width: calc( 100% - 75px ); }
+}

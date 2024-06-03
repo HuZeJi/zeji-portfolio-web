@@ -1,0 +1,167 @@
+@import './../../../../styles.scss';
+
+main { 
+    @include flex-full-center();
+    padding: 25px;
+    margin-top: 25px;
+
+    width: calc(100% - 50px);
+}
+
+.description, .my-badges, .projects { 
+    width: calc( 100% / 3 ); 
+    max-width: 450px;
+}
+.description {
+    .technical-skills { font-weight: 200; }
+    .biography { text-align: justify; }
+    .contact{
+        @include flex-full-center();
+        justify-content: flex-start;
+        margin-top: 25px;
+        gap: 12.5px;
+        .btn {
+            @include square();
+            background-color: $base-background;
+            border: 1px solid $orange;
+            border-radius: 50px;
+            @include flex-full-center();
+
+            position: relative;
+
+            .soon {
+                position: absolute;
+                padding: 3px;
+                border-radius: 10px;
+                background-color: $orange;
+                color: $base-background;
+
+                font-size: .6rem;
+
+                bottom: 0;
+                right: 0;
+            }
+        }
+        .btn-cv {
+            width: 161px;
+        }
+    }
+}
+
+.my-badges {
+    @include flex-full-center();
+    flex-direction: column;
+    margin-top: 80px;
+    .badges { 
+        @include flex-full-center(); 
+        gap: 25px;
+        margin-top: 50px;
+    }
+    .badge {
+        position: relative;
+        @include square(90px);
+        border: 1px solid $orange;
+        border-radius: 10px;
+        padding: 5px;
+        box-sizing: border-box;
+        .image {
+            position: absolute;
+            @include square();
+            top: -25px;
+            left: calc( ( 90px / 2 ) - ( 50px / 2 ) );
+            img {
+                @include square(100%);
+                object-fit: contain;
+            }
+        }
+        .w-40-px {
+            margin: 5px;
+            @include square(40px);
+        }
+        .title, .date { text-align: center; } 
+        .title {
+            margin-top: 30px;
+            font-size: 0.8rem;
+        }
+        .date {
+            margin-top: 5px;
+            font-size: 0.7rem;
+            font-weight: 200;
+        }
+        .link {
+            position: absolute;
+            @include square(25px);
+            background-color: $orange;
+            border-radius: 25px;
+            bottom: -12.5px;
+            left: calc( ( 90px / 2 ) - ( 25px / 2 ) );
+        }
+    }
+}
+
+.projects {
+    @include flex-full-center();
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12.5px;
+    .project {
+        *{ color: $base-background }
+        width: 357px;
+        height: 114px;
+        background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5DgbthTExRlU_sf__BRU3o_EhG2nZwT9VvjYUpJLwtQ&s');
+        border-radius: 15px;
+        overflow: hidden;
+        .detail, .title { width: calc( 100% / 3); }
+        .detail {            
+            @include flex-full-center();
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+
+            .correlative { font-weight: 400; }
+            .short-description, .action { font-size: 0.8rem; }
+            .action {
+                font-weight: 200;
+                padding: 5px;
+                background-color: $base-background;
+                color: $blue;
+                border-radius: 15px;
+            }
+        }
+        .title {
+            @include flex-full-center();
+            text-align: center;
+
+            width: 100px;
+            height: 25px;
+
+            border-radius: 25px;
+
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+
+            span {
+                font-size: 0.8rem;
+                font-weight: 400;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    main { 
+        padding: 15px;
+        margin-top: 0;
+    }    
+    .my-badges, .projects { display: none; }
+    .description {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        .full-name { order: 1; }
+        .technical-skills { font-weight: 200; order: 2; }
+        .biography, .contact { display: none; }
+    }
+}

@@ -1,0 +1,118 @@
+@import './../../../../styles.scss';
+main {
+    @include square( 100% );
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5DgbthTExRlU_sf__BRU3o_EhG2nZwT9VvjYUpJLwtQ&s');
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover;
+
+    @include flex-full-center();
+    justify-content: space-between;
+
+    padding: 25px;
+    box-sizing: border-box;
+}
+
+.links, form { width: calc( 50% - 225px ); z-index: 1; }
+.links {
+    @include flex-full-center();
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 25px;
+
+    .upper-links, .lower-links {
+        @include flex-full-center();
+        gap: 25px;
+    }
+
+    .lower-links {
+        margin-left: 100px;
+    }
+
+    .link {
+        @include square( 100px );
+        border-radius: 15px;
+        background-color: $dark-opaque;
+
+        @include flex-full-center();
+        flex-direction: column;
+        gap: 5px;
+
+        .icon {
+            @include square();
+            background-color: $base-background;
+            border-radius: 50px
+        }
+
+        .title {
+            @include rectangle( 50px, 20px );
+            background-color: $orange;
+            color: $base-background;
+            @include flex-full-center();
+            font-size: 0.8rem;
+            font-weight: bold;
+            border-radius: 20px;
+        }
+    }
+}
+
+form {
+    @include flex-full-center();
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12.5px;
+    input {
+        border-radius: 5px;
+        border: 1px solid $orange;
+    }
+    #name { @include rectangle( 400px, 27px ); }
+    #message { @include rectangle( 400px, 115px ); }
+    button {
+        @include rectangle( 161px, 50px );
+        background-color: $orange;
+        color: $base-background; 
+        font-weight: bold;
+        border-radius: 50px;
+    }
+}
+
+
+@media only screen and (max-width: 768px) {
+    main {
+        flex-direction: column;
+        padding: 15px;
+        box-sizing: border-box;
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 125px;
+        gap: 25px;
+    }
+    
+    .links, form { width: 100%; }
+    .links {
+        order: 3;
+        .lower-links { display: none; }    
+        .link {
+            @include square( 75px );
+            border-radius: 10px;    
+            .icon {
+                @include square(35px);
+            }
+        }
+    }
+    
+    form {
+        width: calc( 100% - 75px );
+        order: 2;
+        align-items: flex-start;
+        #name { @include rectangle( 100%, 27px ); }
+        #message { @include rectangle( 100%, 115px ); }
+    }
+
+    form, .description, .links { max-width: 400px; }
+}
+
+@media only screen and (max-width: 560px) {
+    main { align-items: flex-start; }
+    .links { width: calc( 100% - 75px ); }
+}

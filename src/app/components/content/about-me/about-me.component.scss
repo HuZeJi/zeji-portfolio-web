@@ -1,0 +1,103 @@
+@import './../../../../styles.scss';
+
+main {
+    @include square( 100% );
+    @include flex-full-center();
+    height: 100%;
+    gap: 25px;
+    *{ color: $base-background; }
+}
+
+.story {
+    @include flex-full-center();
+    flex-direction: column;
+    align-items: flex-end;
+    *{ width: 100%; text-align: right; }
+    .description { max-width: 275px; }
+    .contact-buttons { display: none; }
+}
+
+.image {
+    @include rectangle( 344px, 100% );
+    @include flex-full-center();
+    align-items: flex-end;
+    .portrait {
+        @include rectangle( 344px, 445px);
+        background-color: crimson;
+    }
+}
+
+.mobile-title { display: none; }
+
+@media only screen and (max-width: 768px) {
+    .mobile-title { display: block; }
+    .desktop-title { display: none; }
+    main {
+        @include flex-full-center();
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 50px;
+        padding: 15px;
+        box-sizing: border-box;
+        margin-top: 125px;
+    }
+    
+    .story {
+        order: 2;
+        align-items: flex-start;
+        *{ text-align: left; }
+        .description { max-width: calc( 100% - 95px ); }
+
+        gap: 15px;
+
+        .contact-buttons {
+            @include flex-full-center();
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 15px;
+
+            .contact-btn {
+                @include rectangle( 175px, 50px );
+                border-radius: 50px;
+                background-color: $orange;
+                @include flex-full-center();
+                font-weight: bold;
+            }
+
+            .social-buttons {
+                @include flex-full-center();
+                justify-content: flex-start;
+                gap: 12.5px;
+                .social-btn {
+                    @include flex-full-center();
+                    @include square(50px);
+                    border: 1px solid $orange;
+                    border-radius: 50px;
+                    box-sizing: border-box;
+                    .icon {
+                        @include square( 20px );
+                        background-color: $orange;
+                        border-radius: 20px;
+                    }
+                }
+            }
+        }
+    }
+    
+    .image {
+        order: 1;
+        height: 225px;
+        position: relative; 
+
+        .portrait {
+            position: absolute;
+            @include rectangle( 160px, 215px);
+        }
+
+        .portrait-back {
+            @include rectangle( 250px, 100px);
+            background-color: $orange;
+            border-radius: 100px;
+        }
+    }
+}
