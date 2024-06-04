@@ -15,6 +15,7 @@ main {
     *{ width: 100%; text-align: right; }
     .description { max-width: 275px; }
     .contact-buttons { display: none; }
+    z-index: 1;
 }
 
 .image {
@@ -25,6 +26,7 @@ main {
         @include rectangle( 344px, 445px);
         background-color: crimson;
     }
+    z-index: 1;
 }
 
 .mobile-title { display: none; }

@@ -23,6 +23,7 @@ main {
     .correlative, .action { font-weight: bold; }
     .actions { @include flex-full-center(); justify-content: flex-start; gap: 12.5px; }
     .action {
+        cursor: pointer;
         @include rectangle( 161px, 50px );
         background-color: $orange;
         @include flex-full-center();

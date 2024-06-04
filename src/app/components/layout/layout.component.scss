@@ -33,6 +33,15 @@ main { position: relative; }
     border: 25px solid $base-background;
 
     z-index: 1;
+
+    cursor: pointer;
+
+    @include flex-full-center();
+    .button-detail {
+        @include flex-full-center();
+        flex-direction: column;
+        span { color: $base-background; margin-top: 5px; }
+    }
 }
 
 @media only screen and (max-width: 768px) {

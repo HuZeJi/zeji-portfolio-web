@@ -8,12 +8,17 @@ main {
     width: calc(100% - 50px);
 }
 
+.btn, .link, .action { 
+    cursor: pointer;
+    transition: background-color .3s ease;
+}
+
 .description, .my-badges, .projects { 
     width: calc( 100% / 3 ); 
     max-width: 450px;
 }
 .description {
-    .technical-skills { font-weight: 200; }
+    .technical-skills { font-weight: 200; font-size: .8rem; }
     .biography { text-align: justify; }
     .contact{
         @include flex-full-center();
@@ -42,9 +47,8 @@ main {
                 right: 0;
             }
         }
-        .btn-cv {
-            width: 161px;
-        }
+        .btn-cv { width: 161px; }
+        .btn:hover { background-color: $pink; }
     }
 }
 
@@ -95,6 +99,7 @@ main {
             border-radius: 25px;
             bottom: -12.5px;
             left: calc( ( 90px / 2 ) - ( 25px / 2 ) );
+            @include flex-full-center();
         }
     }
 }
@@ -108,11 +113,22 @@ main {
         *{ color: $base-background }
         width: 357px;
         height: 114px;
-        background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5DgbthTExRlU_sf__BRU3o_EhG2nZwT9VvjYUpJLwtQ&s');
         border-radius: 15px;
         overflow: hidden;
         .detail, .title { width: calc( 100% / 3); }
-        .detail {            
+        position: relative;
+        .blur-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        @include flex-full-center();
+        justify-content: flex-start;
+        align-items: flex-end;
+        padding: 10px;
+        box-sizing: border-box;
+        .detail {
+            z-index: 2;
             @include flex-full-center();
             flex-direction: column;
             align-items: flex-start;

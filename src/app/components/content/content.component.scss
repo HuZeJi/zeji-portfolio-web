@@ -13,7 +13,7 @@ main {
 
     overflow: hidden;
 
-    *{ color: $base-background; z-index: 1; }
+    *{ color: $base-background; z-index: 2; }
 
     position: relative;
 }
@@ -35,8 +35,10 @@ main {
         .icon {
             @include square( 27px );
             border-radius: 27px;
-            background-color: $base-background;
+            @include flex-full-center();
         }
+
+        .bold { font-weight: bold; }
     }
 
     .logo {
@@ -47,6 +49,7 @@ main {
 }
 
 .buttons {
+    cursor: pointer;
     position: absolute;
     width: calc( 50% - ( 225px / 2 ) - ( $border-gap ) );
 
@@ -63,6 +66,12 @@ main {
         border-radius: 50px;
         @include flex-full-center();
         .icon, .mobile-label { display: none; }
+        transition: all .3s ease;
+    }
+
+    .btn:hover {
+        background-color: $base-background;
+        .desk-label { color: $blue; }
     }
 }
 
@@ -73,6 +82,9 @@ main {
 .buttons-right, .right-nav { right: $border-gap; }
 
 .nav {
+
+    cursor: pointer;
+
     position: absolute;
     bottom: 100px;
 
@@ -84,7 +96,8 @@ main {
 
     .icon {
         @include rectangle( $max-width, 10px );
-        background-color: $base-background;
+        margin-top: -10px;
+        margin-bottom: 15px;
     }
 }
 

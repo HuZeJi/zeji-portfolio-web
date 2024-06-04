@@ -1,7 +1,7 @@
 @import './../../../../styles.scss';
 main {
     @include square( 100% );
-    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5DgbthTExRlU_sf__BRU3o_EhG2nZwT9VvjYUpJLwtQ&s');
+    // background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5DgbthTExRlU_sf__BRU3o_EhG2nZwT9VvjYUpJLwtQ&s');
     background-position: center; 
     background-repeat: no-repeat; 
     background-size: cover;
@@ -23,17 +23,9 @@ main {
 
     flex-wrap: wrap;
 
-    .fill {
-        background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5DgbthTExRlU_sf__BRU3o_EhG2nZwT9VvjYUpJLwtQ&s');
-        background-position: center; 
-        background-repeat: no-repeat; 
-        background-size: cover;
-    }
-
     .project {
         @include square( 100px );
         border-radius: 15px;
-        background-color: $blue-opaque;
         *{ color: $base-background; }
         @include flex-full-center();
         align-items: flex-end;
@@ -42,6 +34,9 @@ main {
         box-sizing: border-box;
 
         position: relative;
+        background-color: $blue-opaque;
+        overflow: hidden;
+        background-color: $blue-opaque;
 
         .title {
             @include flex-full-center();
@@ -69,9 +64,22 @@ main {
         }
     }
 
-    .selected {
-        border: 2px solid $orange;
+    .fill{ cursor: pointer; transition: all .2s ease; border: 2px solid $blue-opaque; }
+    .fill:hover { border: 2px solid $green; }
+    .fill::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        @include square(100%);
+        $opacity: .13;
+        background-image: linear-gradient(0deg, rgba(128,128,128,$opacity) 75%, rgba(0,0,0,0.2) 100%)
+            , linear-gradient(90deg, rgba(128,128,128,$opacity) 75%, rgba(0,0,0,0.2) 100%)
+            , linear-gradient(180deg, rgba(128,128,128,$opacity) 75%, rgba(0,0,0,0.2) 100%)
+            , linear-gradient(270deg, rgba(128,128,128,$opacity) 75%, rgba(0,0,0,0.2) 100%);
     }
+
+    .selected { border: 2px solid $orange; }
 }
 
 .blur-layer-vertical-double { position: absolute; }

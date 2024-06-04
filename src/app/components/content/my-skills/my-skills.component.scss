@@ -1,11 +1,6 @@
 @import './../../../../styles.scss';
 main {
     @include square( 100% );
-    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5DgbthTExRlU_sf__BRU3o_EhG2nZwT9VvjYUpJLwtQ&s');
-    background-position: center; 
-    background-repeat: no-repeat; 
-    background-size: cover;
-
     @include flex-full-center();
     gap: 50px;
 
@@ -25,11 +20,6 @@ main {
     .skill {
         position: relative;
 
-        background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5DgbthTExRlU_sf__BRU3o_EhG2nZwT9VvjYUpJLwtQ&s');
-        background-position: center; 
-        background-repeat: no-repeat; 
-        background-size: cover;
-
         @include rectangle( 100px, 225px );
         border-radius: 15px;
 
@@ -43,10 +33,16 @@ main {
         box-sizing: border-box;
 
         .details { display: none; }
+
+        background-size: 300% !important;
+        background-position: center top !important;
     }
 
     .selected {
         width: 245px;
+
+        background-size: 175% !important;
+        background-position: center 25% !important;
         h2 { 
             writing-mode: horizontal-tb; 
             transform: rotate(0deg); 
